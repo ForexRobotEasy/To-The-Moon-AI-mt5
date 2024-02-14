@@ -1,0 +1,110 @@
+
+//+------------------------------------------------------------------+
+//|                                               To The Moon AI mt5 |
+//|                                Developer's Site: forexroboteasy.com |
+//|                                       Development: Forex Robot Easy Team |
+//+------------------------------------------------------------------+
+
+// Global variables
+double profitTarget = 100.0; // Profit target for each trade
+bool isHighImpactNews = false; // Flag to indicate high impact news during US session
+enum WorkMode { MANUAL, AUTO }; // Work mode settings
+
+//+------------------------------------------------------------------+
+//|                    Expert Advisor Initialization                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Set the initial work mode
+    WorkMode mode = WorkMode.MANUAL;
+    
+    // Initialize the expert advisor based on the work mode
+    if (mode == WorkMode.MANUAL)
+    {
+        // Do necessary initialization for manual mode
+        Print('Initializing To The Moon AI mt5 in Manual mode...');
+    }
+    else if (mode == WorkMode.AUTO)
+    {
+        // Do necessary initialization for auto mode
+        Print('Initializing To The Moon AI mt5 in Auto mode...');
+    }
+    
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//|                  Expert Advisor Start Function                     |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Check if high impact news is detected
+    if (isHighImpactNews)
+    {
+        // Analyze real-time data and identify market trends
+        if (DetectMarketTrend())
+        {
+            // Execute buy or sell trades based on the detected trends
+            ExecuteTrades();
+        }
+    }
+    else
+    {
+        Print('No high impact news detected during US session.');
+    }
+    
+    // Check if profit target is reached
+    if (IsProfitTargetReached())
+    {
+        Print('Profit target achieved. Exiting To The Moon AI mt5...');
+        ExpertRemove();
+    }
+}
+
+//+------------------------------------------------------------------+
+//|                 Function to Detect Market Trends                   |
+//+------------------------------------------------------------------+
+bool DetectMarketTrend()
+{
+    // Implement the logic to analyze real-time data and detect market trends here
+    // Return true if a trend is detected, false otherwise
+    
+    // Placeholder code
+    bool isTrendDetected = true;
+    
+    return isTrendDetected;
+}
+
+//+------------------------------------------------------------------+
+//|              Function to Execute Buy or Sell Trades                |
+//+------------------------------------------------------------------+
+void ExecuteTrades()
+{
+    // Implement the logic to execute buy or sell trades here
+    // This function should execute trades based on the detected market trends
+    
+    // Placeholder code
+    Print('Executing buy or sell trades...');
+}
+
+//+------------------------------------------------------------------+
+//|             Function to Check if Profit Target is Reached          |
+//+------------------------------------------------------------------+
+bool IsProfitTargetReached()
+{
+    // Implement the logic to check if the profit target is reached here
+    // Return true if profit target is reached, false otherwise
+    
+    // Placeholder code
+    bool isTargetReached = false;
+    
+    return isTargetReached;
+}
+
+//+------------------------------------------------------------------+
+//|                  Expert Advisor Deinitialization                   |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    Print('Deinitializing To The Moon AI mt5...');
+}
